@@ -36,21 +36,27 @@ for the targeted regions needs to be provided.
     Once Amplivar is downloaded, it is recommended to test the package by running the provided examples:  
     * Testing genotyping function  
     ~~~
-    ``` /PATH/TO/AMPLIVAR/bin/universal/amplivar.sh \\  
+    /PATH/TO/AMPLIVAR/bin/universal/amplivar.sh \\  
             -i /PATH/TO/AMPLIVAR/TEST_GENOTYPE/TEST_DATA \\  
             -j /PATH/TO/AMPLIVAR/TEST_GENOTYPE/SUSPECTS \\  
             -k /PATH/TO/AMPLIVAR/TEST_GENOTYPE/PRIMERS \\  
-            -1 10 -2 5 -3 0.01 ```
+            -1 10 -2 5 -3 0.01   
     ~~~   
   
     * Testing variant calling function  
     Start a BLAT server (this can be a different computer from the one running Amplivar)  
-    ``` /PATH/TO/AMPLIVAR/bin/OS/gfServer start localhost PORT /PATH/TO/BLAT/GENOME/GENOME.2bit ```   
+    ~~~
+    /PATH/TO/AMPLIVAR/bin/OS/gfServer start localhost PORT /PATH/TO/BLAT/GENOME/GENOME.2bit
+    ~~~   
       * Running Amplivar on a computer different from the one running the BLAT server:  
-    ``` /PATH/TO/AMPLIVAR/amplivar.sh -i /PATH/TO/AMPLIVAR/TEST_VARIANT/TEST_DATA -k /PATH/TO/AMPLIVAR/TEST_VARIANT/PRIMERS -p PORT -b BLAT_SERVER -1 10 -2 5 -3 0.01 ```   
-    
-      * Running Amplivar on the same computer that runs the BLAT server:  
-    ``` /PATH/TO/AMPLIVAR/amplivar.sh -i /PATH/TO/AMPLIVAR/TEST_VARIANT/TEST_DATA -k /PATH/TO/AMPLIVAR/TEST_VARIANT/PRIMERS -p PORT -b localhost -1 10 -2 5 -3 0.01 ```      
+    ~~~
+    /PATH/TO/AMPLIVAR/amplivar.sh 
+    	-i /PATH/TO/AMPLIVAR/TEST_VARIANT/TEST_DATA 
+    	-k /PATH/TO/AMPLIVAR/TEST_VARIANT/PRIMERS
+    	-b BLAT_SERVER  
+    	-p PORT -1 10 -2 5 -3 0.01
+    ~~~   
+    If running Amplivar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```   
 
 ## 4. References
 
