@@ -139,7 +139,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
      A list of options can be displayed using ```amplivar_wrapper.sh -h```   
      
      ~~~   
-     <b>General options</b>   
+     <pre><b>General options</b></pre>   
      [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING  
      [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)  
      [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED   
