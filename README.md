@@ -117,10 +117,10 @@ Olga Kondrashova :girl:.
     
 
 ## 4. Usage and Program Options    
-+ **File naming and formats**
++ **File naming and formats**   
 	 ++ Paired FASTQ files in the input directory must have the suffix of "_R1.fastq.gz" or "_R2.fastq.gz".  
 	 ++ Genotype file is a four-column, tab-separated text file with the first three columns describing the 
-	   variant and the fourth column is the corresponding sequence being genotyped. For example (without header row):   
+	   variant and the fourth column is the corresponding sequence being genotyped. For example (without header row):    
 	         
 	   | Column 1         | Column 2     | Column 3   | Variant sequence                |   
 	   | ---------------- | ------------ | ---------- | ------------------------------- |  
