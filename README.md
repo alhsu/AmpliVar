@@ -26,14 +26,14 @@ Olga Kondrashova :girl:.
  * [Samtools](http://samtools.sourceforge.net/)   
  * [SeqPrep](https://github.com/jstjohn/SeqPrep)      
  * [VarScan2](http://varscan.sourceforge.net/)
- * [BLAT](http://hgdownload.cse.ucsc.edu/admin/exe/) (gfClient and gfServer, optionally BLAT)  
+ * [BLAT](http://hgdownload.cse.ucsc.edu/admin/exe/) (gfClient and gfServer)  
  * [FreeBayes](https://github.com/ekg/freebayes) (bamleftalign)   
  * [GNU Parallel](http://www.gnu.org/software/parallel/)
  
 + **Other Requirements**
- * Genome FASTA file
  * BLAT 2-bit genome index (e.g. for hg19, download from [UCSC](http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/bigZips/), 
- or build using faToTwoBit that is included in the package)  
+   or build using `faToTwoBit` that is included in the package)  
+ * Genome FASTA file (can be extracted from a BLAT 2-bit genome using `twoBitToFa` that is included in the package)
 
 
 ## 3. Installation    
