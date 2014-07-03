@@ -117,9 +117,9 @@ Olga Kondrashova :girl:.
     
 
 ## 4. Usage and Program Options    
-1. **File naming and formats**
-	 + Paired FASTQ files in the input directory must have the suffix of "_R1.fastq.gz" or "_R2.fastq.gz".  
-	 + Genotype file is a four-column, tab-separated text file with the first three columns describing the 
++ **File naming and formats**
+	 ++ Paired FASTQ files in the input directory must have the suffix of "_R1.fastq.gz" or "_R2.fastq.gz".  
+	 ++ Genotype file is a four-column, tab-separated text file with the first three columns describing the 
 	   variant and the fourth column is the corresponding sequence being genotyped. For example (without header row):   
 	         
 	   | Column 1         | Column 2     | Column 3   | Variant sequence                |   
@@ -130,7 +130,7 @@ Olga Kondrashova :girl:.
        | BRAF_NM_004333.4 | c.1406G>A    | G469V      | CCCTTGTAGACTGTTTCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>C    | G469A      | CCCTTGTAGACTGTTGCAAATGATCCAGATC |   
          
-     + Primer sequence file must take the following form in tab-separated text (without header row):   
+     ++ Primer sequence file must take the following form in tab-separated text (without header row):   
            
        | Amplicon    | Length | Coordinate                 | Flanking primer sequence   |        
        |------------ | ------ | -------------------------- | -------------------------- |    
@@ -139,7 +139,8 @@ Olga Kondrashova :girl:.
        | 3_NRAS8_13  |   127  | chr1:115258728-115258855   | (ATTATAGAAAG.*CTGACAATCCA) |  
        | 4_ALK1      |   132  | chr2:29432663-29432795     | (TGGCCGTTGTA.*GACATCTACAG) |  
        | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |                   
-2. **AmpliVar options**   
+       
++ **AmpliVar options**   
      **WARNING:** *When used on Mac OS, only the short options are supported.*   
      
      A list of options can be displayed using ```amplivar_wrapper.sh -h```   
@@ -177,6 +178,8 @@ Olga Kondrashova :girl:.
      [-2|--mincov <INT>]               Minimum coverage for variant calling. Default=10  
      [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5
      ```     
+
+
 
 ## 5. References
  * Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009).  
