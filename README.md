@@ -73,13 +73,14 @@ Olga Kondrashova :girl:.
 		diff [/PATH/TO/AMPLIVAR]/test/genotyping_results/$B $R;     
 	  done   
 	  ~~~     
-      The above command should produce no output when results are consistent as pre-computed ones.
+      The above command should produce no output when results are consistent with pre-computed ones.
   
     * Testing AmpliVar's variant calling function  
       * Start a BLAT server (this can be a different computer from the one running AmpliVar)  
         Replace OS with either "darwin" (Mac) or "linux" depending on the operating system.  
         If running AmpliVar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```. 
-        Port takes any numeric value, however, certain ports are reserved for popular programs. We use a default port number of 8800.   
+        Port takes any numeric value between 1 to 65535, however, certain ports are reserved for popular programs, e.g. HTTP on 
+        port 80, SSH on 22, etc., using these ports may cause networking issue. AmpliVar uses a default port number of 8800.   
         ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
         ~~~   
