@@ -36,9 +36,13 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
 
 ## 3. Installation    
 * **Installing AmpliVar**   
-  The source package also contains pre-compiled binaries needed to run AmpliVar under Mac OSX or Linux environments. The binaries are compiled
-  on Centos 6 and OSX 10.8.5. Please refer to the original sites for source code and/or executable binary if the provided binaries do not work. 
-  In case a user is using self-build binaries, edit the AmpliVar wrapper script - amplivar_wrapper.sh to point path to binaries to new location. 
+  The source package also contains pre-compiled binaries needed to run AmpliVar under Mac OSX or Linux environments. 
+  The binaries are compiled on Centos 6 and OSX 10.8.5. Please refer to the original sites for source code and/or 
+  executable binary if the provided binaries do not work.  
+  
+  Using self-build or existing binaries can be achieved by either editing the section labelled **"EDIT HERE TO USE SELF-BUILD BINARIES"** 
+  in the AmpliVar wrapper script - *amplivar_wrapper.sh* to point path to binaries to new location, or by using the 
+  **-e** switch, which gives preference to binaries in system path (and still uses packaged binaries where one cannot be located).   
   
   To install AmpliVar, simply download the package:   
   ```    git clone https://github.com/alhsu/AmpliVar.git    ```  
@@ -46,7 +50,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
 
 * **Testing installation**   
     Once AmpliVar is downloaded, it is recommended to test the package by running the provided examples.   
-    Replacing everything in \[\] with appropriate values:     
+    Replace everything in \[\] (square brackets) with appropriate values:     
     * Testing AmpliVar's genotyping function  
       ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
@@ -128,6 +132,41 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
        | 4_ALK1      |   132  | chr2:29432663-29432795     | (TGGCCGTTGTA.*GACATCTACAG) |  
        | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |  
        
+       
+    2. **AmpliVar options**
+       **WARNING:** *When used on Mac OS, only the short options are supported.*   
+    
+        General options:
+        [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING
+        [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)
+        [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED 
+        [-p|--probes <BIG_FLANKS>]        File with big flanks/probes. REQUIRED (when checkpoint is not specified)
+        [-t|--threads <THREADS>]          Number of parallel threads. Default=2
+        [-r|--resume <CHK_PT>]            Resume from checkpoint, where checkpoints 1=BLAT2BAM, 2=VARIANT_CALL
+        [-d|--adapters <ADAPTERS>]        Adapters used in the assay NEXTERA or TRUSEQ. REQUIRED (if -a and -b are not set)
+        [-a|--adapter_fwd <ADAPTER_FWD>]         Forward adapter sequence
+        [-b|--adapter_rev <ADAPTER_REV>]         Reverse adapter sequence
+        [-f|--filter <KEY>]               Process only files containing KEY. Default=all files.
+        [-k|--keepfiles <INT>]            Files to remove, options: 
+                                              1= keep all files,
+                                              2= keep files required for reanalysis from checkpoint 1
+                                              3= keep only bam, vcf and log files and move the files into BAM, LOG, VCF files directories
+                                              Default=keep all files
+        [-e|--system-exe]                 Use executables in system PATH where available, instead of packaged executables
+        [-h|--help]                       Print this help message
+        [-v|--version]                    Print Version
+
+        GENOTYPING OPTIONS
+        [-s|--suspects <USUAL_SUSPECTS>]  File with usual suspects. 
+
+        VARIANT_CALLING OPTIONS
+        [-g|--genome <GENOME_FASTA>]      Genome FASTA file. REQUIRED (when mode=VARIANT_CALLING)
+        [-x|--blat_server <BLAT_SERVER>]  Address where BLAT server is running. Default=localhost
+        [-y|--blat_port   <BLAT_PORT>]    Port number where BLAT server is served. Default=8800
+        [-z|--two_bit <TWO_BIT>]          2-bit genome file served by BLAT server. Default=\"\"
+        [-1|--minfreq <INT>]              Minimum reported variant frequency. Default=5
+        [-2|--mincov <INT>]               Minimum coverage for variant calling. Default=10
+        [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5
 
 ## 5. References
  * Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009).  
