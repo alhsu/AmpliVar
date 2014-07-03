@@ -42,9 +42,10 @@ Olga Kondrashova :girl:.
   The binaries are compiled on Centos 6 and OSX 10.8.5. Please refer to the original sites for source code and/or 
   executable binary if the provided binaries do not work.  
   
-  Using self-build or existing binaries can be achieved by either editing the section labelled **"EDIT HERE TO USE SELF-BUILD BINARIES"** 
-  in the AmpliVar wrapper script - *amplivar_wrapper.sh* to point path to binaries to new location, or by using the 
-  **-e** switch, which gives preference to binaries in system path (and still uses packaged binaries where one cannot be located).   
+  Using self-build or existing binaries is possible and can be achieved by either editing the section labelled 
+  **"EDIT HERE TO USE SELF-BUILD BINARIES"** in the AmpliVar wrapper script - *amplivar_wrapper.sh* to point path to 
+  binaries to new location, or by using the **-e** switch, which gives preference to binaries in system path (and 
+  still uses packaged binaries where one cannot be located).   
   
   To install AmpliVar, simply download the package:   
   ```    git clone https://github.com/alhsu/AmpliVar.git    ```  
