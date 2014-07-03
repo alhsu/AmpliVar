@@ -46,7 +46,7 @@ known genotypes for the targeted regions needs to be provided.
     Once Amplivar is downloaded, it is recommended to test the package by running the provided examples. Replacing everything in [] with 
     appropriate values:  
     * Testing Amplivar's genotyping function  
-    	~~~  
+      ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
     		-m GENOTYPING \  
             -i [/PATH/TO/AMPLIVAR]/test/data \  
@@ -55,14 +55,14 @@ known genotypes for the targeted regions needs to be provided.
             -p [/PATH/TO/AMPLIVAR]/test/TruSeq_Cancer_primer-flanks.txt \  
             -d TRUSEQ \  
             -t [THREADS]
-    	~~~   
+      ~~~   
   
     * Testing Amplivar's variant calling function  
       * Start a BLAT server (this can be a different computer from the one running Amplivar)  
         Replace OS with either "darwin" (Mac) or "linux" depending on your operating system.  
-    	~~~  
+        ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
-    	~~~   
+        ~~~   
     	Wait for the message "Server ready for queries!".  
       * In another terminal, run Amplivar:  
     	~~~  
