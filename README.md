@@ -139,7 +139,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
      A list of options can be displayed using ```amplivar_wrapper.sh -h```   
      
      ```   
-     <pre><b>General options</b></pre>   
+     General options   
      [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING  
      [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)  
      [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED   
@@ -159,10 +159,10 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
      [-h|--help]                       Print this help message  
      [-v|--version]                    Print Version  
     
-     <b>GENOTYPING OPTIONS</b>   
+     GENOTYPING OPTIONS   
      [-s|--suspects <USUAL_SUSPECTS>]  File with usual suspects.        
     
-     <b>VARIANT_CALLING OPTIONS</b>   
+     VARIANT_CALLING OPTIONS   
      [-g|--genome <GENOME_FASTA>]      Genome FASTA file. REQUIRED (when mode=VARIANT_CALLING)    
      [-x|--blat_server <BLAT_SERVER>]  Address where BLAT server is running. Default=localhost    
      [-y|--blat_port   <BLAT_PORT>]    Port number where BLAT server is served. Default=8800   
