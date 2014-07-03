@@ -120,16 +120,16 @@ Olga Kondrashova :girl:.
 1. **File naming and formats**
 	 + Paired FASTQ files in the input directory must have the suffix of "_R1.fastq.gz" or "_R2.fastq.gz".  
 	 + Genotype file is a four-column, tab-separated text file with the first three columns describing the 
-	   variant and the fourth column is the corresponding sequence being genotyped. For example (without header row):   
-	   | Column 1         | Column 2     | Column 3   | Variant sequence                |
+	   variant and the fourth column is the corresponding sequence being genotyped. For example (without header row):      
+	   | Column 1         | Column 2     | Column 3   | Variant sequence                |   
 	   | ---------------- | ------------ | ---------- | ------------------------------- |  
        | BRAF_NM_004333.4 | c.1397G      | G466       | ACTGTTCCAAATGATCCAGATCCAATTCTTT |  
        | BRAF_NM_004333.4 | c.1397G>T    | G466V      | ACTGTTCCAAATGATACAGATCCAATTCTTT |  
        | BRAF_NM_004333.4 | c.1406G      | G469       | CCCTTGTAGACTGTTCCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>A    | G469V      | CCCTTGTAGACTGTTTCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>C    | G469A      | CCCTTGTAGACTGTTGCAAATGATCCAGATC |  
-     + Primer sequence file must take the following form in tab-separated text (without header row):   
-       | Amplicon    | Length | Coordinate                 | Flanking primer sequence   |
+     + Primer sequence file must take the following form in tab-separated text (without header row):      
+       | Amplicon    | Length | Coordinate                 | Flanking primer sequence   |   
        |------------ | ------ | -------------------------- | -------------------------- |    
        | 1_MPL1_2    |   131  | chr1:43815006-43815137     | (AGGTGCGCACG.*TCAGCAGCAGC) |  
        | 2_NRAS1_7   |   127  | chr1:115256526-115256653   | (CCTGTGGTTTT.*AGAGTACAGTG) |  
