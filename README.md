@@ -54,7 +54,7 @@ known genotypes for the targeted regions needs to be provided.
             -s [/PATH/TO/AMPLIVAR]/test/TruSeq_Cancer_genotype-lookup.txt \  
             -p [/PATH/TO/AMPLIVAR]/test/TruSeq_Cancer_primer-flanks.txt \  
             -d TRUSEQ \  
-            -t [THREADS]
+            -t [THREADS]   
       ~~~   
   
     * Testing Amplivar's variant calling function  
@@ -63,6 +63,7 @@ known genotypes for the targeted regions needs to be provided.
         ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
         ~~~   
+        
     	Wait for the message "Server ready for queries!".  
       * In another terminal, run Amplivar:  
     	~~~  
