@@ -138,8 +138,7 @@ Olga Kondrashova :girl:.
        | 2_NRAS1_7   |   127  | chr1:115256526-115256653   | (CCTGTGGTTTT.*AGAGTACAGTG) |  
        | 3_NRAS8_13  |   127  | chr1:115258728-115258855   | (ATTATAGAAAG.*CTGACAATCCA) |  
        | 4_ALK1      |   132  | chr2:29432663-29432795     | (TGGCCGTTGTA.*GACATCTACAG) |  
-       | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |   
-                
+       | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |                   
 2. **AmpliVar options**   
      **WARNING:** *When used on Mac OS, only the short options are supported.*   
      
