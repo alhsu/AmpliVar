@@ -92,7 +92,14 @@ known genotypes for the targeted regions needs to be provided.
 
 ## 4. Usage and Program Options    
   1. **File naming and formats**
-
+	 + Paired FASTQ files in the input directory must have the suffix of "_R1.fastq.gz" or "_R2.fastq.gz".  
+	 + Genotype file is a four-column, tab-separated text file with the first three columns describing the 
+	   variant and the fourth column is the corresponding sequence being genotyped. For example:    
+       | BRAF_NM_004333.4 | c.1397G      | G466   |  ACTGTTCCAAATGATCCAGATCCAATTCTTT |  
+       | BRAF_NM_004333.4 | c.1397G>T    | G466V  |  ACTGTTCCAAATGATACAGATCCAATTCTTT |  
+       | BRAF_NM_004333.4 | c.1406G      | G469   |  CCCTTGTAGACTGTTCCAAATGATCCAGATC |  
+       | BRAF_NM_004333.4 | c.1406G>A    | G469V  |  CCCTTGTAGACTGTTTCAAATGATCCAGATC |  
+       | BRAF_NM_004333.4 | c.1406G>C    | G469A  |  CCCTTGTAGACTGTTGCAAATGATCCAGATC |  
 
 ## 5. References
  * Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009).  
