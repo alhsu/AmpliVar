@@ -47,7 +47,7 @@ known genotypes for the targeted regions needs to be provided.
     appropriate values:  
     * Testing Amplivar's genotyping function  
     	~~~  
-    	/PATH/TO/AMPLIVAR/bin/universal/amplivar_wrapper.sh \  
+    	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
     		-m GENOTYPING \  
             -i [/PATH/TO/AMPLIVAR]/test/data \  
             -o [/PATH/TO/AMPLIVAR]/test/genotyping \  
@@ -61,12 +61,12 @@ known genotypes for the targeted regions needs to be provided.
       * Start a BLAT server (this can be a different computer from the one running Amplivar)  
         Replace OS with either "darwin" (Mac) or "linux" depending on your operating system.  
     	~~~  
-    	/PATH/TO/AMPLIVAR/bin/OS/gfServer start localhost PORT /PATH/TO/BLAT/GENOME/GENOME.2bit   
+    	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
     	~~~   
     	Wait for the message "Server ready for queries!".  
       * In another terminal, run Amplivar:  
     	~~~  
-    	/PATH/TO/AMPLIVAR/bin/universal/amplivar_wrapper.sh \  
+    	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
     		-m VARIANT_CALLING \  
             -i [/PATH/TO/AMPLIVAR]/test/data \  
             -o [/PATH/TO/AMPLIVAR]/test/variant_calling \  
