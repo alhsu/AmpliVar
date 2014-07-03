@@ -133,9 +133,12 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
        | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |  
        
        
-  2. **AmpliVar options**
+  2. **AmpliVar options**   
      **WARNING:** *When used on Mac OS, only the short options are supported.*   
-    
+     
+     A list of options can be displayed using ```amplivar_wrapper.sh -h```   
+     
+     ~~~   
      **General options:**  
      [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING  
      [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)  
@@ -166,7 +169,8 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
      [-z|--two_bit <TWO_BIT>]          2-bit genome file served by BLAT server. Default=\"\"  
      [-1|--minfreq <INT>]              Minimum reported variant frequency. Default=5  
      [-2|--mincov <INT>]               Minimum coverage for variant calling. Default=10  
-     [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5  
+     [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5
+     ~~~     
 
 ## 5. References
  * Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009).  
