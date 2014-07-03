@@ -2,14 +2,16 @@ AmpliVar
 ========
 
 ## 1. About    
-AmpliVar is a tool for robust mutation detection in amplicon-based next generation sequencing (NGS) data. 
-In addition to providing variant calling and genotyping functionalities, it also enables the profiling of 
-low-frequency random sequencing and polymerase errors.   
+AmpliVar is a tool for robust mutation detection in amplicon-based next generation sequencing (NGS) data designed 
+for use in clinical diagnostic setting. In addition to providing variant calling and genotyping functionalities, 
+it can be used for profiling of low-frequency random errors derived from sequencing, polymerase and tissue damage.   
 
 AmpliVar can be used with or without a reference genome. When used without a reference genome, a list of 
 known genotypes for the targeted regions needs to be provided. 
 
-**Authors:** *Graham Taylor, Arthur Hsu and Olga Kondrashova. Department of Pathology, The University of Melbourne.*
+**Authors:**  
+Graham Taylor, Arthur Hsu and Olga Kondrashova.   
+*Department of Pathology, The University of Melbourne.*  
 
 ## 2. Requirements  
 + **System Requirements**     
@@ -43,8 +45,8 @@ known genotypes for the targeted regions needs to be provided.
   
 
 * **Testing installation**   
-    Once AmpliVar is downloaded, it is recommended to test the package by running the provided examples. Replacing everything in [] with 
-    appropriate values:  
+    Once AmpliVar is downloaded, it is recommended to test the package by running the provided examples.   
+    Replacing everything in [] with appropriate values:     
     * Testing AmpliVar's genotyping function  
       ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
@@ -60,6 +62,8 @@ known genotypes for the targeted regions needs to be provided.
     * Testing AmpliVar's variant calling function  
       * Start a BLAT server (this can be a different computer from the one running AmpliVar)  
         Replace OS with either "darwin" (Mac) or "linux" depending on your operating system.  
+        If running AmpliVar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```. 
+        Port takes any numeric value, however, certain ports are reserved for popular programs. We use a default port number of 8800.   
         ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
         ~~~   
@@ -79,7 +83,6 @@ known genotypes for the targeted regions needs to be provided.
             -x [localhost] -y [8800] \  
             -1 20 -k 3   
    		~~~   
-    	If running AmpliVar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```   
     	
     	Next, we check the results against pre-computed results on our system.  
     	~~~  
@@ -88,7 +91,9 @@ known genotypes for the targeted regions needs to be provided.
 			diff [/PATH/TO/AMPLIVAR]/test/variant_calling_results/$B $R;  
 		done
 		~~~  
-    	You should see no output from the above command, which means there is no difference between test output and the pre-computed results.
+    	The above command should produce no output, since there is should not be any difference between test output and 
+    	the pre-computed results.
+    	
 
 ## 4. Usage and Program Options    
   1. **File naming and formats**
