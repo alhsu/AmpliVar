@@ -103,6 +103,17 @@ known genotypes for the targeted regions needs to be provided.
        | BRAF_NM_004333.4 | c.1406G      | G469       | CCCTTGTAGACTGTTCCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>A    | G469V      | CCCTTGTAGACTGTTTCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>C    | G469A      | CCCTTGTAGACTGTTGCAAATGATCCAGATC |  
+       
+     + Primer sequence file must take the following form in tab-separated text:   
+     
+       | Amplicon    | Length | Coordinate                 | Flanking primer sequence   |
+       |------------ | ------ | -------------------------- | -------------------------- |    
+       | 1_MPL1_2    |   131  | chr1:43815006-43815137     | (AGGTGCGCACG.*TCAGCAGCAGC) |  
+       | 2_NRAS1_7   |   127  | chr1:115256526-115256653   | (CCTGTGGTTTT.*AGAGTACAGTG) |  
+       | 3_NRAS8_13  |   127  | chr1:115258728-115258855   | (ATTATAGAAAG.*CTGACAATCCA) |  
+       | 4_ALK1      |   132  | chr2:29432663-29432795     | (TGGCCGTTGTA.*GACATCTACAG) |  
+       | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |  
+       
 
 ## 5. References
  * Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009).  
