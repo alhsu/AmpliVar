@@ -133,40 +133,40 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
        | 5_ALK2      |   118  | chr2:29443692-29443810     | (CAGAATGCCTT.*CACCAGAACAT) |  
        
        
-    2. **AmpliVar options**
-       **WARNING:** *When used on Mac OS, only the short options are supported.*   
+  2. **AmpliVar options**
+     **WARNING:** *When used on Mac OS, only the short options are supported.*   
     
-        **General options:**  
-        [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING  
-        [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)  
-        [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED   
-        [-p|--probes <BIG_FLANKS>]        File with big flanks/probes. REQUIRED (when checkpoint is not specified)  
-        [-t|--threads <THREADS>]          Number of parallel threads. Default=2  
-        [-r|--resume <CHK_PT>]            Resume from checkpoint, where checkpoints 1=BLAT2BAM, 2=VARIANT_CALL  
-        [-d|--adapters <ADAPTERS>]        Adapters used in the assay NEXTERA or TRUSEQ. REQUIRED (if -a and -b are not set)  
-        [-a|--adapter_fwd <ADAPTER_FWD>]         Forward adapter sequence  
-        [-b|--adapter_rev <ADAPTER_REV>]         Reverse adapter sequence  
-        [-f|--filter <KEY>]               Process only files containing KEY. Default=all files.  
-        [-k|--keepfiles <INT>]            Files to remove, options:   
+     **General options:**  
+     [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING  
+     [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)  
+     [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED   
+     [-p|--probes <BIG_FLANKS>]        File with big flanks/probes. REQUIRED (when checkpoint is not specified)  
+     [-t|--threads <THREADS>]          Number of parallel threads. Default=2  
+     [-r|--resume <CHK_PT>]            Resume from checkpoint, where checkpoints 1=BLAT2BAM, 2=VARIANT_CALL  
+     [-d|--adapters <ADAPTERS>]        Adapters used in the assay NEXTERA or TRUSEQ. REQUIRED (if -a and -b are not set)  
+     [-a|--adapter_fwd <ADAPTER_FWD>]         Forward adapter sequence  
+     [-b|--adapter_rev <ADAPTER_REV>]         Reverse adapter sequence  
+     [-f|--filter <KEY>]               Process only files containing KEY. Default=all files.  
+     [-k|--keepfiles <INT>]            Files to remove, options:   
                                               1= keep all files,  
                                               2= keep files required for reanalysis from checkpoint 1  
                                               3= keep only bam, vcf and log files and move the files into BAM, LOG, VCF files directories  
                                               Default=keep all files  
-        [-e|--system-exe]                 Use executables in system PATH where available, instead of packaged executables  
-        [-h|--help]                       Print this help message  
-        [-v|--version]                    Print Version  
+     [-e|--system-exe]                 Use executables in system PATH where available, instead of packaged executables  
+     [-h|--help]                       Print this help message  
+     [-v|--version]                    Print Version  
     
-        **GENOTYPING OPTIONS***
-        [-s|--suspects <USUAL_SUSPECTS>]  File with usual suspects.        
+     **GENOTYPING OPTIONS***
+     [-s|--suspects <USUAL_SUSPECTS>]  File with usual suspects.        
     
-        **VARIANT_CALLING OPTIONS**
-        [-g|--genome <GENOME_FASTA>]      Genome FASTA file. REQUIRED (when mode=VARIANT_CALLING)    
-        [-x|--blat_server <BLAT_SERVER>]  Address where BLAT server is running. Default=localhost    
-        [-y|--blat_port   <BLAT_PORT>]    Port number where BLAT server is served. Default=8800   
-        [-z|--two_bit <TWO_BIT>]          2-bit genome file served by BLAT server. Default=\"\"  
-        [-1|--minfreq <INT>]              Minimum reported variant frequency. Default=5  
-        [-2|--mincov <INT>]               Minimum coverage for variant calling. Default=10  
-        [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5  
+     **VARIANT_CALLING OPTIONS**
+     [-g|--genome <GENOME_FASTA>]      Genome FASTA file. REQUIRED (when mode=VARIANT_CALLING)    
+     [-x|--blat_server <BLAT_SERVER>]  Address where BLAT server is running. Default=localhost    
+     [-y|--blat_port   <BLAT_PORT>]    Port number where BLAT server is served. Default=8800   
+     [-z|--two_bit <TWO_BIT>]          2-bit genome file served by BLAT server. Default=\"\"  
+     [-1|--minfreq <INT>]              Minimum reported variant frequency. Default=5  
+     [-2|--mincov <INT>]               Minimum coverage for variant calling. Default=10  
+     [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5  
 
 ## 5. References
  * Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009).  
