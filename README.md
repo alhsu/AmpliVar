@@ -10,7 +10,9 @@ AmpliVar can be used with or without a reference genome. When used without a ref
 known genotypes for the targeted regions needs to be provided. 
 
 **Authors:**  
-Graham Taylor, Arthur Hsu and Olga Kondrashova.   
+Graham Taylor :older_man:,  
+Arthur Hsu :man: and  
+Olga Kondrashova :girl:.   
 *Department of Pathology, The University of Melbourne.*  
 
 ## 2. Requirements  
@@ -107,6 +109,9 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
     	The above command should produce no output, since there is should not be any difference between test output and 
     	the pre-computed results.
     	
+    :thumbsup:
+
+    
 
 ## 4. Usage and Program Options    
   1. **File naming and formats**
@@ -139,7 +144,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
      A list of options can be displayed using ```amplivar_wrapper.sh -h```   
      
      ```   
-     General options   
+     GENERAL OPTIONS   
      [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING  
      [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)  
      [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED   
