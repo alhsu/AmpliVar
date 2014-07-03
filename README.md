@@ -20,7 +20,8 @@ Olga Kondrashova :girl:.
  * Linux operating system with BASH shell (pre-compiled binaries for Mac OSX 10.8 and Centos 6)  
  * 4G RAM (8G recommended)
  * Perl 5
- * Python 2 (2.6 tested)  
+ * Python 2 (2.6+)  
+ * Java 1.6+
 
 + **Software Dependencies** (provided in the AmpliVar package):  
  * [Samtools](http://samtools.sourceforge.net/)   
