@@ -46,7 +46,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
 
 * **Testing installation**   
     Once AmpliVar is downloaded, it is recommended to test the package by running the provided examples.   
-    Replacing everything in [] with appropriate values:     
+    Replacing everything in \[\] with appropriate values:     
     * Testing AmpliVar's genotyping function  
       ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
@@ -58,10 +58,19 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
             -d TRUSEQ \  
             -t [THREADS]   
       ~~~   
+      
+      Check results against pre-computed results by:  
+      ~~~  
+	  for R in [/PATH/TO/AMPLIVAR]/test/genotyping/*_grp_Genotypes.txt ; do   
+	    B=`basename $R`;  
+		diff [/PATH/TO/AMPLIVAR]/test/genotyping_results/$B $R;     
+	  done   
+	  ~~~     
+      The above command should produce no output when results are consistent as pre-computed ones.
   
     * Testing AmpliVar's variant calling function  
       * Start a BLAT server (this can be a different computer from the one running AmpliVar)  
-        Replace OS with either "darwin" (Mac) or "linux" depending on your operating system.  
+        Replace OS with either "darwin" (Mac) or "linux" depending on the operating system.  
         If running AmpliVar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```. 
         Port takes any numeric value, however, certain ports are reserved for popular programs. We use a default port number of 8800.   
         ~~~  
@@ -88,9 +97,9 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
     	~~~  
 		for R in [/PATH/TO/AMPLIVAR]/test/variant_calling/VCF/*.vcf ; do   
 			B=`basename $R`;  
-			diff [/PATH/TO/AMPLIVAR]/test/variant_calling_results/$B $R;  
-		done
-		~~~  
+			diff [/PATH/TO/AMPLIVAR]/test/variant_calling_results/$B $R;     
+		done   
+		~~~   
     	The above command should produce no output, since there is should not be any difference between test output and 
     	the pre-computed results.
     	
@@ -99,7 +108,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
   1. **File naming and formats**
 	 + Paired FASTQ files in the input directory must have the suffix of "_R1.fastq.gz" or "_R2.fastq.gz".  
 	 + Genotype file is a four-column, tab-separated text file with the first three columns describing the 
-	   variant and the fourth column is the corresponding sequence being genotyped. For example:   
+	   variant and the fourth column is the corresponding sequence being genotyped. For example (without header row):   
 	       
 	   | Column 1         | Column 2     | Column 3   | Variant sequence                |
 	   | ---------------- | ------------ | ---------- | ------------------------------- |  
@@ -109,7 +118,7 @@ Graham Taylor, Arthur Hsu and Olga Kondrashova.
        | BRAF_NM_004333.4 | c.1406G>A    | G469V      | CCCTTGTAGACTGTTTCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>C    | G469A      | CCCTTGTAGACTGTTGCAAATGATCCAGATC |  
        
-     + Primer sequence file must take the following form in tab-separated text:   
+     + Primer sequence file must take the following form in tab-separated text (without header row):   
      
        | Amplicon    | Length | Coordinate                 | Flanking primer sequence   |
        |------------ | ------ | -------------------------- | -------------------------- |    
