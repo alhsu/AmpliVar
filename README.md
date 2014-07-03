@@ -7,7 +7,7 @@ for use in clinical diagnostic setting. In addition to providing variant calling
 it can be used for profiling of low-frequency random errors derived from sequencing, polymerase and tissue damage.   
 
 AmpliVar can be used with or without a reference genome. When used without a reference genome, a list of 
-known genotypes for the targeted regions needs to be provided. 
+sequence of known genotypes for the targeted regions needs to be provided. 
 
 **Authors:**  
 Graham Taylor :older_man:,  
@@ -17,7 +17,7 @@ Olga Kondrashova :girl:.
 
 ## 2. Requirements  
 + **System Requirements**     
- * Linux operating system with BASH shell (Mac OSX 10.8+ and Centos 6)  
+ * Linux operating system with BASH shell (pre-compiled binaries for Mac OSX 10.8 and Centos 6)  
  * 4G RAM (8G recommended)
  * Perl 5
  * Python 2.6+  
