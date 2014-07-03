@@ -9,11 +9,11 @@ low-frequency random sequencing and polymerase errors.
 AmpliVar can be used with or without a reference genome. When used without a reference genome, a list of 
 known genotypes for the targeted regions needs to be provided. 
 
-**Authors:** *Graham Taylor, Arthur Hsu and Olga Kondroshova. Department of Pathology, The University of Melbourne.*
+**Authors:** *Graham Taylor, Arthur Hsu and Olga Kondrashova. Department of Pathology, The University of Melbourne.*
 
 ## 2. Requirements  
 + **System Requirements**     
- * Linux operating system with BASH shell (tested on Mac OSX 10.8+ and Centos 6)  
+ * Linux operating system with BASH shell (Mac OSX 10.8+ and Centos 6)  
  * 4G RAM (8G recommended)
  * Perl 5
  * Python 2.6+  
@@ -33,19 +33,19 @@ known genotypes for the targeted regions needs to be provided.
 
 
 ## 3. Installation    
-* **Installing Amplivar**   
-  The source package also contains pre-compiled binaries needed to run Amplivar under Mac OSX or Linux environments. The binaries are compiled
+* **Installing AmpliVar**   
+  The source package also contains pre-compiled binaries needed to run AmpliVar under Mac OSX or Linux environments. The binaries are compiled
   on Centos 6 and OSX 10.8.5. Please refer to the original sites for source code and/or executable binary if the provided binaries do not work. 
   In case a user is using self-build binaries, edit the AmpliVar wrapper script - amplivar_wrapper.sh to point path to binaries to new location. 
   
-  To install Amplivar, simply download the package:   
-  ```    git clone https://github.com/alhsu/Amplivar.git    ```  
+  To install AmpliVar, simply download the package:   
+  ```    git clone https://github.com/alhsu/AmpliVar.git    ```  
   
 
 * **Testing installation**   
-    Once Amplivar is downloaded, it is recommended to test the package by running the provided examples. Replacing everything in [] with 
+    Once AmpliVar is downloaded, it is recommended to test the package by running the provided examples. Replacing everything in [] with 
     appropriate values:  
-    * Testing Amplivar's genotyping function  
+    * Testing AmpliVar's genotyping function  
       ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
     		-m GENOTYPING \  
@@ -57,15 +57,15 @@ known genotypes for the targeted regions needs to be provided.
             -t [THREADS]   
       ~~~   
   
-    * Testing Amplivar's variant calling function  
-      * Start a BLAT server (this can be a different computer from the one running Amplivar)  
+    * Testing AmpliVar's variant calling function  
+      * Start a BLAT server (this can be a different computer from the one running AmpliVar)  
         Replace OS with either "darwin" (Mac) or "linux" depending on your operating system.  
         ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
         ~~~   
         
     	Wait for the message "Server ready for queries!".  
-      * In another terminal, run Amplivar:  
+      * In another terminal, run AmpliVar:  
     	~~~  
     	[/PATH/TO/AMPLIVAR]/bin/universal/amplivar_wrapper.sh \  
     		-m VARIANT_CALLING \  
@@ -79,7 +79,7 @@ known genotypes for the targeted regions needs to be provided.
             -x [localhost] -y [8800] \  
             -1 20 -k 3   
    		~~~   
-    	If running Amplivar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```   
+    	If running AmpliVar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```   
     	
     	Next, we check the results against pre-computed results on our system.  
     	~~~  
