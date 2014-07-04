@@ -10,9 +10,9 @@ AmpliVar can be used with or without a reference genome. When used without a ref
 sequence of known genotypes for the targeted regions needs to be provided. 
 
 **Authors:**  
-Graham Taylor :older_man:,  
-Arthur Hsu :man: and  
-Olga Kondrashova :girl:.   
+Graham Taylor :man:,  
+Arthur Hsu :boy: and  
+Olga Kondrashova :princess:.   
 *Department of Pathology, The University of Melbourne.*  
 
 ## 2. Requirements  
