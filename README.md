@@ -130,7 +130,9 @@ Olga Kondrashova :girl:.
        | BRAF_NM_004333.4 | c.1406G>A    | G469V      | CCCTTGTAGACTGTTTCAAATGATCCAGATC |  
        | BRAF_NM_004333.4 | c.1406G>C    | G469A      | CCCTTGTAGACTGTTGCAAATGATCCAGATC |   
          
-     * Primer sequence file must take the following form in tab-separated text (without header row):   
+     * Primer sequence file must take the following form in tab-separated text as shown in the table below (without header row).  
+       While there is no restriction on the first three columns, currently all flanking primer sequence needs to be exactly 11-bases 
+       on either side of the target region.    
            
        | Amplicon    | Length | Coordinate                 | Flanking primer sequence   |        
        |------------ | ------ | -------------------------- | -------------------------- |    
