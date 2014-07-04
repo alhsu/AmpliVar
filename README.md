@@ -74,7 +74,7 @@ Olga Kondrashova :girl:.
 		diff [/PATH/TO/AMPLIVAR]/test/genotyping_results/$B $R;     
 	  done   
 	  ~~~     
-      The above command should produce no output when results are consistent with pre-computed ones.
+      The above command should produce no output when results are consistent with pre-computed ones. :thumbsup:   
   
     * Testing AmpliVar's variant calling function  
       * Start a BLAT server (this can be a different computer from the one running AmpliVar)  
@@ -111,9 +111,7 @@ Olga Kondrashova :girl:.
 		done   
 		~~~   
     	The above command should produce no output, since there is should not be any difference between test output and 
-    	the pre-computed results.
-    	
-    :thumbsup:
+    	the pre-computed results. :thumbsup:   
 
     
 
@@ -155,7 +153,9 @@ Olga Kondrashova :girl:.
      [-o|--output <ANALYSIS_DIR>]      Path to directory to output results of analysis. REQUIRED   
      [-p|--probes <BIG_FLANKS>]        File with big flanks/probes. REQUIRED (when checkpoint is not specified)  
      [-t|--threads <THREADS>]          Number of parallel threads. Default=2  
-     [-r|--resume <CHK_PT>]            Resume from checkpoint, where checkpoints 1=BLAT2BAM, 2=VARIANT_CALL  
+     [-r|--resume <CHK_PT>]            Resume from checkpoint CHK_PT, where CHK_PT takes value:
+                                              1=BLAT2BAM, 
+                                              2=VARIANT_CALL  
      [-d|--adapters <ADAPTERS>]        Adapters used in the assay NEXTERA or TRUSEQ. REQUIRED (if -a and -b are not set)  
      [-a|--adapter_fwd <ADAPTER_FWD>]         Forward adapter sequence  
      [-b|--adapter_rev <ADAPTER_REV>]         Reverse adapter sequence  
