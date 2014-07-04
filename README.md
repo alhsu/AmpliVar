@@ -69,7 +69,7 @@ Olga Kondrashova :princess:.
       
       Check results against pre-computed results by:  
       ~~~  
-	  for R in [/PATH/TO/AMPLIVAR]/test/genotyping/*_grp_Genotypes.txt ; do   
+	  for R in [/PATH/TO/AMPLIVAR]/test/genotyping/*/genotype/*_grp_Genotypes.txt ; do   
 	    B=`basename $R`;  
 		diff [/PATH/TO/AMPLIVAR]/test/genotyping_results/$B $R;     
 	  done   
