@@ -81,8 +81,9 @@ Olga Kondrashova :princess:.
         Replace OS with either "darwin" (Mac) or "linux" depending on the operating system.  
         If running AmpliVar on the same computer that runs the BLAT server, use ```localhost``` in place of ```BLAT_SERVER```. 
         Port takes any numeric value between 1 to 65535, however, certain ports are reserved for popular protocols, e.g. HTTP on 
-        port 80, SSH on 22, etc., using an occupied port may cause networking issue. AmpliVar uses a default port number of 8800.    
-        **IMPORTANT**: \[/PATH/TO/BLAT/GENOME/GENOME.2bit\] needs to be the absolute path to the 2-bit genome file.
+        port 80, SSH on 22, etc., using an occupied port may cause networking issue. AmpliVar uses a default port number of 8800.   
+            
+        **IMPORTANT**: \[/PATH/TO/BLAT/GENOME/GENOME.2bit\] needs to be given as the absolute path to the 2-bit genome file. 
         ~~~  
     	[/PATH/TO/AMPLIVAR]/bin/[OS]/gfServer start localhost [PORT] [/PATH/TO/BLAT/GENOME/GENOME.2bit]   
         ~~~   
