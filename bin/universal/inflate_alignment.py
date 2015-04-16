@@ -51,26 +51,26 @@ def inflate( args ):
             continue
     
         # split header and extract fields
-        #toks = row[0].split('_')
-        toks = re.split('_+', row[0])
+        toks = row[0].split('_')
+        #toks = re.split('_+', row[0])
         n_length = toks[-1]
-        length = toks[-2]
-        perc = toks[-3]
+        #length = toks[-2]
+        #perc = toks[-3]
         n_reads = toks[-4]
-        reads = toks[-5]
-        coord = toks[-6]
-        assert perc.endswith('%')
-        assert reads=='reads'
-        assert length=='length'
-        chrom, grange = coord.split(':')
-        gstart, gend = map(int, grange.split('-'))
+        #reads = toks[-5]
+        #coord = toks[-6]
+        #assert perc.endswith('%')
+        #assert reads=='reads'
+        #assert length=='length'
+        #chrom, grange = coord.split(':')
+        #gstart, gend = map(int, grange.split('-'))
         n_reads, n_length = map(int, [n_reads, n_length])
-        perc = float(perc[:-1])/100
+        #perc = float(perc[:-1])/100
     
         # put fields back into SAM format order
         SAM = [ '_'.join(toks) ] + row[1:]
         # add tags for extracted info
-        SAM += ['XC:A:%s'%chrom, 'XB:i:%d'%gstart, 'XE:i:%d'%gend, 'XP:f:%f'%perc, 'XL:i:%d'%n_length, 'XR:i:%d'%n_reads]
+        #SAM += ['XC:A:%s'%chrom, 'XB:i:%d'%gstart, 'XE:i:%d'%gend, 'XP:f:%f'%perc, 'XL:i:%d'%n_length, 'XR:i:%d'%n_reads]
 
         # remove primer alignment
         if args.primer_length:

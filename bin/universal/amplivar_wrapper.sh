@@ -1,7 +1,7 @@
 #!/bin/bash
-set -e
+#set -e
 
-VERSION=2014-04-24p
+VERSION=1.0
 OS=`uname`
 EXE=
 if [ $OS != "Darwin" ] && [ $OS != "Linux" ]; then
@@ -62,8 +62,8 @@ BLAT_TWOBIT=
 
 function usage_BSD() {
 	echo ""
-    echo 1>&2 "`basename $0` Run the Amplivar pipeline
-    `basename $0` Version: $VERSION
+    echo 1>&2 "
+    AmpliVar Version: $VERSION
     Usage: bash $0 [options]
         GENERAL OPTIONS
         [-m <MODE>]            Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING
@@ -103,9 +103,9 @@ function usage_BSD() {
 
 function usage_GNU() {
 	echo ""
-    echo 1>&2 "`basename $0` Run the Amplivar pipeline
-    \n`basename $0` Version: $VERSION
-    \nUsage: bash $0 [options]
+    echo 1>&2 "
+    AmpliVar Version: $VERSION
+    Usage: bash $0 [options]
         GENERAL OPTIONS
         [-m|--mode <MODE>]                Mode for AmpliVar to operate in. Takes one of GENOTYPING or VARIANT_CALLING value. Default=VARIANT_CALLING
         [-i|--input <INPUT_DIR>]          Path to directory containing the FASTQ files. REQUIRED (when checkpoint is not specified)
@@ -139,7 +139,7 @@ function usage_GNU() {
         [-1|--minfreq <INT>]              Minimum reported variant frequency. Default=5
         [-2|--mincov <INT>]               Minimum coverage for variant calling. Default=10
         [-3|--mincovvar <INT>]            Minimum number reads containing the variant allele. Default=5
-        \n"
+        "
 }
 
 function usage {
@@ -347,17 +347,36 @@ export BLAT_PORT BLAT_HOST BLAT_TWOBIT
 #================================= BEGIN WRAPPER FUNCTIONS ======================================
 function create_symbolic_links {
     set -e
-	FILEDIR=$2
-	FILEBASE=$(basename $1 _R1.fastq.gz)
-	ANALYSIS_SUBDIR=$3/${FILEBASE}
-	echo $ANALYSIS_SUBDIR
+    if [[ "$1" != Undetermined* ]]; then
+	    FILEDIR=$2
+        if [[ "$1" == *_R1_001.fastq.gz ]]; then
+            SUFFIX1=_R1_001.fastq.gz
+            SUFFIX2=_R2_001.fastq.gz
+        elif [[ "$1" == *_R1.fastq.gz ]]; then
+            SUFFIX1=_R1.fastq.gz
+            SUFFIX2=_R2.fastq.gz
+        else
+            FN=$1
+            SUF=(${FN/_R1/ })
+            SUFFIX1=_R1${SUF[1]}
+            SUFFIX2=_R2${SUF[1]}
+        fi
+	    FILEBASE=$(basename $1 $SUFFIX1)
+	    ANALYSIS_SUBDIR=$3/${FILEBASE}
+        FQ1=${FILEDIR}/${FILEBASE}${SUFFIX1}
+        FQ2=${FILEDIR}/${FILEBASE}${SUFFIX2}
+        FQ1OUT=${ANALYSIS_SUBDIR}/${FILEBASE}_R1.fastq.gz
+        FQ2OUT=${ANALYSIS_SUBDIR}/${FILEBASE}_R2.fastq.gz
+        echo "Symbolic-linking $FQ1 -> $FQ1OUT"
+        echo "Symbolic-linking $FQ2 -> $FQ2OUT"
 	mkdir -p ${ANALYSIS_SUBDIR}
-    if [ $OS == "Darwin" ]; then
-        ln -sf  -v ${FILEDIR}/${FILEBASE}_R1.fastq.gz ${ANALYSIS_SUBDIR}/${FILEBASE}_R1.fastq.gz >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
-	    ln -sf -v ${FILEDIR}/${FILEBASE}_R2.fastq.gz ${ANALYSIS_SUBDIR}/${FILEBASE}_R2.fastq.gz >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
-    else
- 	    cp -sf -v ${FILEDIR}/${FILEBASE}_R1.fastq.gz ${ANALYSIS_SUBDIR}/${FILEBASE}_R1.fastq.gz >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
-	    cp -sf -v ${FILEDIR}/${FILEBASE}_R2.fastq.gz ${ANALYSIS_SUBDIR}/${FILEBASE}_R2.fastq.gz >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
+        if [ $OS == "Darwin" ]; then
+            ln -sf -v $FQ1 $FQ1OUT >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
+	        ln -sf -v $FQ2 $FQ2OUT >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
+        else
+ 	        cp -sf -v $FQ1 $FQ1OUT >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
+	        cp -sf -v $FQ2 $FQ2OUT >>${ANALYSIS_SUBDIR}/${FILEBASE}.log 2>&1
+        fi
     fi
 }
 export -f create_symbolic_links
@@ -365,8 +384,12 @@ export -f create_symbolic_links
 function seqprep {
 	FILEDIR=$1
 	FILEBASE=${FILEDIR##*/}
+    echo "Create SeqPrep directories"
+    echo "  ${FILEDIR}/merged"
+    echo "  ${FILEDIR}/seqprep"
 	mkdir -p ${FILEDIR}/merged
 	mkdir -p ${FILEDIR}/seqprep
+    echo "-f ${FILEDIR}/${FILEBASE}_R1.fastq.gz -r ${FILEDIR}/${FILEBASE}_R2.fastq.gz"
 	$SEQPREP -y I \
 		-f ${FILEDIR}/${FILEBASE}_R1.fastq.gz -r ${FILEDIR}/${FILEBASE}_R2.fastq.gz \
 		-A $ADAPTER_FWD -B $ADAPTER_REV \
@@ -447,7 +470,7 @@ export -f amplivar_call_variant
 #================================= END WRAPPER FUNCTIONS ======================================
 
 echo ""
-echo "$(tput setaf 1)Started Amplivar pipeline"
+echo "$(tput setaf 1)Started AmpliVar $MODE"
 echo "Version: $VERSION$(tput sgr0)"
 echo "STARTING TIME: [`date`]"
 echo "$(tput setaf 1)Setting program paths $(tput sgr0)"
@@ -467,16 +490,18 @@ if [ $CHKPOINT -lt 1 ]; then
     echo "$(tput setaf 3)Processing FASTQ files:$(tput sgr0)"
     echo "$FASTQFILES"
     echo "$(tput setaf 3)Creating symbolic links$(tput sgr0)"
-    for f in ${INPUT_DIR}/*${FILTER}*_R1.fastq.gz ; do echo "$f ${INPUT_DIR} ${ANALYSIS_DIR}"; done | \
+    for f in `find ${INPUT_DIR}/ -maxdepth 1 -name "*${FILTER}*_R1*.fastq.gz" -not -name "Undetermined*"`; do
+        echo "$f ${INPUT_DIR} ${ANALYSIS_DIR}"; done | \
     $PARALLEL -P $THREADS --colsep ' ' -k "create_symbolic_links {1} {2} {3}"
     ANALYSIS_SUB_DIRS=`find ${ANALYSIS_DIR}/*${FILTER}* -maxdepth 0 -type d -not -name VCF -not -name LOG -not -name BAM`
     echo "$(tput setaf 3)Running SeqPrep$(tput sgr0)"
     for dir in $ANALYSIS_SUB_DIRS; do echo "$dir"; done | \
     $PARALLEL -P $THREADS -k "seqprep {}"
-    echo "$(tput setaf 3)Running Amplivar$(tput sgr0)"
+    echo "$(tput setaf 3)Running AmpliVar$(tput sgr0)"
     for dir in $ANALYSIS_SUB_DIRS; do echo "$dir"; done | \
     $PARALLEL -P $THREADS -k "amplivar {}"
 fi
+
 if [ -z "$ANALYSIS_SUB_DIRS" ]; then
 	ANALYSIS_SUB_DIRS=`find ${ANALYSIS_DIR}/*${FILTER}* -maxdepth 0 -type d -not -name VCF -not -name LOG -not -name BAM`
 fi
@@ -549,7 +574,7 @@ elif [ $KEEPFILES -eq 3 ]; then
         -not -name BAM -not -name LOG -not -name VCF -exec rm -r {} \;
 fi
 
-echo "$(tput setaf 1)Finished Amplivar pipeline$(tput sgr0)"
+echo "$(tput setaf 1)Finished AmpliVar $MODE $(tput sgr0)"
 echo "END TIME: [`date`]"
 
 
